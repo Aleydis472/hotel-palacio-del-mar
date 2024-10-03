@@ -3,6 +3,6 @@ export interface Room {
     name: string;
     description: string;
     price: number;
-    imageUrl: string;
+    imageUrl: [];
     availability: boolean;  // Indica si está disponible o no
 }

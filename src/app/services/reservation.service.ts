@@ -10,7 +10,7 @@ import { Reservation } from '../models/reservation.model';
 })
 export class ReservationService {
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore) { }
 
   // Obtener todas las reservas
   getReservations(): Observable<Reservation[]> {
