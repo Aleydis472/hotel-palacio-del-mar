@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 .card{
     box-shadow:
-    5px 5px 10px #d2d2d2,
-    -5px -5px 10px #ffffff;
+    5px 5px 10px #68656575,
+    -5px -5px 10px #ffffff1f;
     border: none !important;
+} 
+
+.cursor{
+    cursor: pointer;
 }
