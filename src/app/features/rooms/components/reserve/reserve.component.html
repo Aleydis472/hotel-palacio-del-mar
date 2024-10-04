@@ -1,1 +1,109 @@
-<p>reserve works!</p>
+<div class="modal fade" id="reserve" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">Reserva de la Habitación <span
+                        class="badge bg-primary">{{room.name}}</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario de reserva -->
+                <div class="card p-3">
+
+                    <form [formGroup]="reservationForm" (ngSubmit)="create()">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="name" class="form-control" formControlName="name"
+                                        placeholder="Nombre">
+                                    <label for="name">Nombre</label>
+                                    <div *ngIf="reservationForm.get('name')?.invalid && reservationForm.get('name')?.touched"
+                                        class="text-danger">
+                                        Nombre es requerido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="idPerson" class="form-control" formControlName="idPerson"
+                                        placeholder="Cédula">
+                                    <label for="idPerson">Cédula</label>
+                                    <div *ngIf="reservationForm.get('idPerson')?.invalid && reservationForm.get('idPerson')?.touched"
+                                        class="text-danger">
+                                        Cédula es requerida
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="date" id="checkInDate" class="form-control"
+                                        formControlName="checkInDate" [min]="minCheckInDate" [max]="maxCheckInDate"
+                                        (change)="onDateChange()" placeholder="Fecha de Entrada">
+                                    <label for="checkInDate">Fecha de Entrada</label>
+                                    <div *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched"
+                                        class="text-danger">
+                                        Selecciona una fecha de entrada válida
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="date" id="checkOutDate" class="form-control"
+                                        formControlName="checkOutDate" [min]="minCheckOutDate" [max]="maxCheckOutDate"
+                                        placeholder="Fecha de Salida">
+                                    <label for="checkOutDate">Fecha de Salida</label>
+                                    <div *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched"
+                                        class="text-danger">
+                                        Selecciona una fecha de salida válida
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success" [disabled]="reservationForm.invalid || isDateOccupied">{{
+                            currentReservationId? 'Actualizar' : 'Reservar' }}</button>
+                    </form>
+                </div>
+
+                <hr />
+
+                <div class="card">
+                    <h5>Reservas actuales</h5>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cédula</th>
+                                <th scope="col">Fecha ingresp</th>
+                                <th scope="col">Fecha salida </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (reservation of reservationService.reservations(); track reservation.id; let i =
+                            $index) {
+
+                            <tr>
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{reservation.name}}</td>
+                                <td>{{reservation.idPerson}}</td>
+                                <td>{{reservation.checkInDate}}</td>
+                                <td>{{reservation.checkOutDate}}</td>
+                                <td><i class="fa-regular fa-pen-to-square" (click)="editReservation(reservation)"></i>
+                                    <i class="fa-regular fa-circle-xmark mx-2"
+                                        (click)="deleteReservation(reservation.id)"></i>
+                                </td>
+
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
