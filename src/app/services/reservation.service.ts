@@ -1,4 +1,4 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Room } from '../models/room.model';
 import { addDoc, collection, collectionData, CollectionReference, deleteDoc, doc, Firestore, getDocs, query, setDoc, Timestamp, updateDoc, where } from '@angular/fire/firestore';
@@ -14,7 +14,7 @@ export class ReservationService {
   // Computed signal para acceder a las reservas
   reservations = computed(() => this._reservations());
 
-  constructor(private firestore: Firestore) { }
+  private firestore = inject(Firestore);
 
   // Establecer el roomId y cargar reservas
   setRoomId(roomId: string): void {
@@ -55,8 +55,6 @@ export class ReservationService {
 
   // Actualizar una reserva existente
   async updateReservation(id: string, updatedReservation: Partial<Reservation>): Promise<void> {
-    console.log(id, 'ppppp');
-    
     const reservationRef = doc(this.firestore, 'reservations', id);
 
     // Actualizar la reserva en Firestore

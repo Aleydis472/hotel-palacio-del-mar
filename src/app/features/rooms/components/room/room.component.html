@@ -6,7 +6,7 @@
                 <div class="carousel-inner h-100">
                     <div *ngFor="let image of room.imageUrl; let i = index" class="carousel-item h-100"
                         [ngClass]="{'active': i === 0}">
-                        <img [src]="image" class="d-block w-100 h-100 object-fit-cover" alt="{{ room.name }}">
+                        <img [src]="image" class="d-block w-100 h-100 object-fit-cover" alt="{{ room.name }}" loading="lazy">
                     </div>
                 </div>
                 <a class="carousel-control-prev" [attr.data-bs-target]="'#carousel-'+room.id" role="button"

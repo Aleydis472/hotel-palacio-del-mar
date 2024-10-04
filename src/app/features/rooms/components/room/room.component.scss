@@ -10,6 +10,12 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    opacity: 0; /* Hacer la imagen invisible al principio */
+    transition: opacity 0.5s ease; /* Añadir una transición suave */
+}
+
+.carousel-item img[loading="lazy"] {
+    opacity: 1; /* Hacer visible la imagen cuando se haya cargado */
 }
 
 @media (min-width: 768px) {
