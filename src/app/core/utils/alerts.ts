@@ -12,10 +12,10 @@ export  enum BUTTON_COLOR {
 }
 export interface AlertParams {
     html: string;
-    title?: string;
-    icon?: SweetAlertIcon;
+    title: string;
+    icon: SweetAlertIcon;
     confirmButtonColor?: BUTTON_COLOR;
-    confirmButtonText: string;
+    confirmButtonText?: string;
     cancelButtonText?:  string,
     cancelButtonColor?: BUTTON_COLOR;
     showCancelButton?: boolean
@@ -27,9 +27,9 @@ export class Alerts {
 
     static customized(params: AlertParams): Promise<SweetAlertResult> {
         return Swal.fire({
-            title: params.title || 'Alerta',
+            title: params.title,
             html: params.html,
-            icon: params.icon || 'info',
+            icon: params.icon,
             confirmButtonText: params.confirmButtonText || 'Aceptar',
             confirmButtonColor: params.confirmButtonColor || BUTTON_COLOR.SUCCESS,
             cancelButtonText:  params.cancelButtonText || 'Cancelar',
