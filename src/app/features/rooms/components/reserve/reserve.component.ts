@@ -75,6 +75,8 @@ export class ReserveComponent implements OnChanges {
     if (!this.checkDateAvailability(this.reservationForm.value.checkInDate, this.reservationForm.value.checkOutDate)) {
       this.isDateOccupied = false;
       await this.reservationService.createReservation(this.reservationForm.value);
+      Alerts.customized({ title: '', html: 'Se creó la reserva correctamente.', icon: 'success' });
+
       this.reservationForm.reset();
     } else {
       this.isDateOccupied = true;
