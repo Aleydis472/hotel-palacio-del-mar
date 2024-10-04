@@ -1,0 +1,67 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    overflow: hidden;
+}
+
+/* Estilo del video para que ocupe todo el contenedor */
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Asegura que el video cubra todo el área sin deformarse */
+}
+
+/* Sombra oscura sobre el video */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sombra oscura */
+    z-index: 2;
+}
+
+/* Estilo del contenido encima del video */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.content h1 {
+    font-size: 4.2rem;
+    color: white;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(248, 248, 248, 0.4);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 rgba(248, 248, 248, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(248, 248, 248, 0.4);
+    }
+}
+
+.pulse-button {
+    animation: pulse 1.5s infinite;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
