@@ -1,7 +1,8 @@
 export interface Reservation {
-    id?: string;
+    id: string;
     roomId: number;
-    guestName: string;
-    checkInDate: string; // Fecha de entrada en formato YYYY-MM-DD
-    checkOutDate: string; // Fecha de salida en formato YYYY-MM-DD
+    name: string;
+    idPerson: string;
+    checkInDate: Date; // Fecha de entrada en formato YYYY-MM-DD
+    checkOutDate: Date; // Fecha de salida en formato YYYY-MM-DD
 }
