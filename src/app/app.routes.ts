@@ -4,8 +4,12 @@ export const routes: Routes = [
 
     {
         path: '',
-        redirectTo: '/habitaciones',
+        redirectTo: '/home',
         pathMatch: 'full' 
+      },
+      {
+        path: 'home',
+        loadComponent: () => import('./features/home/pages/home/home.component')
       },
       {
         path: 'habitaciones',
