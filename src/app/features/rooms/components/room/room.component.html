@@ -1,12 +1,12 @@
-<div class="card">
-    <div class="row">
-        <div class="col-6">
+<div class="card h-100">
+    <div class="row g-0 h-100">
+        <div class="col-sm-12 col-md-6">
             <!-- Carousel de imágenes -->
-            <div id="{{ 'carousel-'+room.id }}" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div *ngFor="let image of room.imageUrl; let i = index" class="carousel-item"
+            <div id="{{ 'carousel-'+room.id }}" class="carousel slide h-100" data-bs-ride="carousel">
+                <div class="carousel-inner h-100">
+                    <div *ngFor="let image of room.imageUrl; let i = index" class="carousel-item h-100"
                         [ngClass]="{'active': i === 0}">
-                        <img [src]="image" class="d-block w-100" alt="{{ room.name }}">
+                        <img [src]="image" class="d-block w-100 h-100 object-fit-cover" alt="{{ room.name }}">
                     </div>
                 </div>
                 <a class="carousel-control-prev" [attr.data-bs-target]="'#carousel-'+room.id" role="button"
@@ -22,20 +22,21 @@
             </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-sm-12 col-md-6">
             <!-- Información de la habitación -->
-            <div class="card-body py-2">
-                <h5 class="card-title">{{ room.name }}</h5>
+            <div class="card-body py-2 d-flex flex-column justify-content-center">
+                <h5 class="card-title py-2">{{ room.name }}</h5>
                 <p class="card-text">{{ room.description }}</p>
                 <p class="card-text">
-                    <small class="text-muted">Precio: {{ room.price ? room.price + ' CLP' : 'No disponible' }}</small>
+                    <small class="text-muted fw-bolder">Precio: {{ room.price | currency:'COP' }}</small>
                 </p>
-                <p class="card-text" [ngClass]="{'text-success': room.availability, 'text-danger': !room.availability}">
+                <p class="card-text fw-bolder"
+                    [ngClass]="{'text-success': room.availability, 'text-danger': !room.availability}">
                     {{ room.availability ? 'Disponible' : 'No disponible' }}
                 </p>
-                <div class="button-container">
-                    <button class="btn btn-primary " [ngClass]="{'opacity-50': !room.availability}" data-bs-toggle="modal" data-bs-target="#reserve"
-                        [disabled]="!room.availability">
+                <div class="button-container text-center">
+                    <button class="btn btn-primary w-100 mb-2 mt-2" [ngClass]="{'opacity-50': !room.availability}"
+                        data-bs-toggle="modal" data-bs-target="#reserve" [disabled]="!room.availability">
                         Reservar
                     </button>
                 </div>
@@ -44,4 +45,4 @@
     </div>
 </div>
 
-<app-reserve [room] = "room"></app-reserve>
+<app-reserve [room]="room"></app-reserve>

@@ -91,8 +91,8 @@
                                 <td>{{reservation.idPerson}}</td>
                                 <td>{{reservation.checkInDate}}</td>
                                 <td>{{reservation.checkOutDate}}</td>
-                                <td><i class="fa-regular fa-pen-to-square" (click)="editReservation(reservation)"></i>
-                                    <i class="fa-regular fa-circle-xmark mx-2"
+                                <td><i class="fa-regular fa-pen-to-square text-primary cursor" (click)="editReservation(reservation)"></i>
+                                    <i class="fa-regular fa-circle-xmark text-danger mx-2 cursor" 
                                         (click)="deleteReservation(reservation.id)"></i>
                                 </td>
 

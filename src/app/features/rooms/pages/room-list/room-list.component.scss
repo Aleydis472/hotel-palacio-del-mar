@@ -5,6 +5,56 @@
     justify-content: center;
 }
 
-.cards-procedure {
+.card-container {
+    position: relative;
+    padding: 20px;
     height: auto;
+    top: -150px;
+    z-index: 2px;
+}
+
+.header {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .header-title {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3rem;
+        z-index: 2;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Sombra oscura (ajusta la opacidad) */
+}
+
+.card-container::before {
+    content: "";
+    position: absolute;
+    top: -150px; /* Ajusta este valor según sea necesario */
+    left: 0;
+    right: 0;
+    height: 150px; /* La misma altura que el margen superior */
+    background: transparent; /* Asegúrate de que este contenedor sea transparente */
+    z-index: 0; /* Debajo de los cards */
 }

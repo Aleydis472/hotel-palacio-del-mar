@@ -1,4 +1,13 @@
-<div class="cards-procedure mt-4 mb-5">
+<header class="header">
+    <img src="header.png" alt="Header Image" class="img-fluid w-100 image-container">
+    <div class="overlay"></div>
+    <div class="content text-center text-white">
+        <h1 class="header-title">HABITACIONES</h1>
+        <button class="btn btn-primary btn-xl p-3 pulse-button" routerLink="/habitaciones">Reservar ahora</button>
+    </div>
+</header>
+
+<div class="card-container mt-4 mb-5">
     <div class="flex-box">
         @for (room of roomList; track $index){
 
@@ -7,4 +16,3 @@
         }
     </div>
 </div>
-
