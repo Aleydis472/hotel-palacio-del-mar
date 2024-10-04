@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { collection, Firestore } from 'firebase/firestore';
+import { inject, Injectable, signal, Signal } from '@angular/core';
+
 import { Reservation } from '../models/reservation.model';
 import { Observable } from 'rxjs';
-import { collectionData } from '@angular/fire/firestore';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { Room } from '../models/room.model';
 
 @Injectable({
@@ -10,8 +10,8 @@ import { Room } from '../models/room.model';
 })
 export class RoomService {
 
-  constructor(private firestore: Firestore) { }
-
+  firestore = inject(Firestore);
+  roomsSignal: Signal<Room[]> = signal<Room[]>([]);
    // Obtener todas las habitaciones
    getRooms(): Observable<Room[]> {
     const roomsRef = collection(this.firestore, 'rooms');

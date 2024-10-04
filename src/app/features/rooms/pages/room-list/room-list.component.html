@@ -1,1 +1,9 @@
-<p>room-list works!</p>
+<div class="cards-procedure mt-4 mb-5">
+    <div class="flex-box">
+        @for (room of roomList; track $index){
+
+        <app-room [room]="room"></app-room>
+
+        }
+    </div>
+</div>

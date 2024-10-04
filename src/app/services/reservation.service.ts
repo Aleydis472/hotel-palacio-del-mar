@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, deleteDoc, doc, Firestore, updateDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { Room } from '../models/room.model';
-import { collectionData } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
 import { Reservation } from '../models/reservation.model';
 
 @Injectable({

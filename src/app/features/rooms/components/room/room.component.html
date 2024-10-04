@@ -1,1 +1,45 @@
-<p>room works!</p>
+<div class="card">
+    <div class="row">
+        <div class="col-6">
+            <!-- Carousel de imágenes -->
+            <div id="{{ 'carousel-'+room.id }}" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div *ngFor="let image of room.imageUrl; let i = index" class="carousel-item"
+                        [ngClass]="{'active': i === 0}">
+                        <img [src]="image" class="d-block w-100" alt="{{ room.name }}">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" [attr.data-bs-target]="'#carousel-'+room.id" role="button"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" [attr.data-bs-target]="'#carousel-'+room.id" role="button"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <!-- Información de la habitación -->
+            <div class="card-body py-2">
+                <h5 class="card-title">{{ room.name }}</h5>
+                <p class="card-text">{{ room.description }}</p>
+                <p class="card-text">
+                    <small class="text-muted">Precio: {{ room.price ? room.price + ' CLP' : 'No disponible' }}</small>
+                </p>
+                <p class="card-text" [ngClass]="{'text-success': room.availability, 'text-danger': !room.availability}">
+                    {{ room.availability ? 'Disponible' : 'No disponible' }}
+                </p>
+                <div class="button-container">
+                    <button class="btn btn-primary " [ngClass]="{'opacity-50': !room.availability}" data-bs-toggle="modal" data-bs-target="#reserve"
+                        [disabled]="!room.availability">
+                        Reservar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

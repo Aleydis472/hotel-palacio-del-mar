@@ -1,0 +1,35 @@
+.carousel-item img {
+    object-fit: cover;
+    height: 21em;
+}
+
+.card {
+    height: 21em;
+    width: 45em;
+    display: flex;
+    border: none !important;
+    box-shadow:
+        5px 5px 10px #d2d2d2,
+        -5px -5px 10px #ffffff;
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 95%;
+        }
+    }
+}
+
+.carousel-inner {
+    height: 0;
+    padding-bottom: 100%; /* this sets carousel aspect ratio (4:1 here) */
+}
+
+.carousel-item {
+    position: absolute !important; /* Bootstrap is insistent */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
