@@ -35,10 +35,8 @@ Antes de clonar e instalar el proyecto, asegúrate de tener instaladas las sigui
 
 Para clonar el repositorio de GitHub, ejecuta:
 
-```bash
-git clone https://github.com/tu-repositorio/reservas-hotel-angular.git
-cd reservas-hotel-angular
-
+- git clone https://github.com/Aleydis472/hotel-palacio-del-mar.git
+- cd reservas-hotel-angular
 
 ## Development server
 
