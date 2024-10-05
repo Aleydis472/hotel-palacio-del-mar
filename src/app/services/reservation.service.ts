@@ -1,7 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Room } from '../models/room.model';
-import { addDoc, collection, collectionData, CollectionReference, deleteDoc, doc, Firestore, getDocs, query, setDoc, Timestamp, updateDoc, where } from '@angular/fire/firestore';
+
+import { collection, deleteDoc, doc, Firestore, getDocs, query, setDoc, updateDoc, where } from '@angular/fire/firestore';
 import { Reservation } from '../models/reservation.model';
 
 @Injectable({

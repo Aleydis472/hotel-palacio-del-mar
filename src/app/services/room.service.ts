@@ -1,6 +1,4 @@
 import { inject, Injectable, signal, Signal } from '@angular/core';
-
-import { Reservation } from '../models/reservation.model';
 import { Observable } from 'rxjs';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { Room } from '../models/room.model';

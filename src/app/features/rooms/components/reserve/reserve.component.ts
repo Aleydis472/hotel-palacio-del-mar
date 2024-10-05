@@ -63,7 +63,6 @@ export class ReserveComponent implements OnChanges {
 
   create(): void {
     if (this.currentReservationId) {
-      //this.editReservation(reservation);
       console.log(this.reservationForm.value, 'editando');
 
       this.updateExistingReservation(this.currentReservationId, this.reservationForm.value);
