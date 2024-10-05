@@ -20,6 +20,7 @@ Esta aplicación web permite a los usuarios gestionar reservas en un hotel, faci
 - **Angular Signals**: Herramienta para la gestión reactiva del estado, permitiendo la actualización en tiempo real de los datos.
 - **Font Awesome**: Biblioteca de iconos utilizada en la interfaz para mejorar la experiencia del usuario.
 - **SweetAlert**: Biblioteca utilizada para mostrar alertas y mensajes de confirmación de manera elegante y atractiva.
+- **ngx-spinner**: Biblioteca utilizada para mostrar indicadores de carga mientras se procesan las reservas o se realizan otras operaciones que requieren tiempo.
 
 ## **Requisitos**
 
