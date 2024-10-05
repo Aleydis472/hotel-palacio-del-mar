@@ -4,7 +4,7 @@ import { ReservationService } from '../../../../services/reservation.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, formatDate } from '@angular/common';
 import { Reservation } from '../../../../models/reservation.model';
-import { Alerts } from '../../../../core/utils/alerts';
+import { Alerts, BUTTON_COLOR } from '../../../../core/utils/alerts';
 
 @Component({
   selector: 'app-reserve',
@@ -89,6 +89,8 @@ export class ReserveComponent implements OnChanges {
     await this.reservationService.updateReservation(id, updatedReservation);
     this.currentReservationId = '';
     this.reservationForm.reset();
+    Alerts.customized({ title: 'Reserva actualizada', html: 'Se actualizó la reserva correctamente.', icon: 'success' });
+
   }
   // Cargar los datos de una reserva para edición
   editReservation(reservation: Reservation): void {
@@ -103,8 +105,15 @@ export class ReserveComponent implements OnChanges {
 
   // Eliminar una reserva
   async deleteReservation(id: string): Promise<void> {
-    await this.reservationService.deleteReservation(id);
-    this.initForm();
+    Alerts.customized({ title: 'Eliminar reserva', html: '¿Está seguro que desea eliminar la reserva?.', icon: 'question', confirmButtonText: 'Si, eliminar', confirmButtonColor:BUTTON_COLOR.DELETE, showCancelButton:true}).then(answer => {
+      if (answer.value) {
+        
+         this.reservationService.deleteReservation(id);
+        this.initForm(); 
+        Alerts.customized({ title: 'Reserva eliminada', html: 'Se eliminó la reserva correctamente.', icon: 'success' });
+      }
+    })
+
   }
 
 

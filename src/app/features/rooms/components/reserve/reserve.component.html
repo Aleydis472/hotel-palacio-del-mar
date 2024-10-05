@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" id="idPerson" class="form-control" formControlName="idPerson"
+                                    <input type="number" id="idPerson" class="form-control" formControlName="idPerson"
                                         placeholder="Cédula">
                                     <label for="idPerson">Cédula</label>
                                     <div *ngIf="reservationForm.get('idPerson')?.invalid && reservationForm.get('idPerson')?.touched"
