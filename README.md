@@ -15,7 +15,7 @@ Esta aplicación web permite a los usuarios gestionar reservas en un hotel, faci
 ## **Tecnologías Utilizadas**
 
 - **Angular 18**: Framework principal utilizado para el desarrollo del frontend.
-- **Firebase Firestore**: Base de datos en la nube que almacena las reservas de manera segura.
+- **Firebase Firestore**: Base de datos en la nube que almacena las habitaciones y reservas.
 - **Bootstrap**: Framework CSS utilizado para estilizar y estructurar la interfaz de usuario.
 - **Angular Signals**: Herramienta para la gestión reactiva del estado, permitiendo la actualización en tiempo real de los datos.
 - **Font Awesome**: Biblioteca de iconos utilizada en la interfaz para mejorar la experiencia del usuario.
