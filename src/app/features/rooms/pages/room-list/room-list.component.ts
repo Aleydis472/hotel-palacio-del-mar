@@ -22,9 +22,7 @@ export default class RoomListComponent implements OnInit {
 
   getRoomList(): void {
     this.roomService.getRooms().subscribe(answer => {
-      this.roomList = answer;
-      console.log(answer);
-      
+      this.roomList = answer;      
     })
   }
 

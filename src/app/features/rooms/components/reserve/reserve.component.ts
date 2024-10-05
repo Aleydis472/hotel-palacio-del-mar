@@ -42,6 +42,7 @@ export class ReserveComponent implements OnChanges {
       checkInDate: ['', Validators.required],
       checkOutDate: ['', Validators.required],
     });
+    this.currentReservationId = ''
   }
 
 
@@ -75,13 +76,11 @@ export class ReserveComponent implements OnChanges {
     if (!this.checkDateAvailability(this.reservationForm.value.checkInDate, this.reservationForm.value.checkOutDate)) {
       this.isDateOccupied = false;
       await this.reservationService.createReservation(this.reservationForm.value);
-      Alerts.customized({ title: '', html: 'Se creó la reserva correctamente.', icon: 'success' });
+      Alerts.customized({ title: 'Reserva creada', html: 'Se creó la reserva correctamente.', icon: 'success' });
 
       this.reservationForm.reset();
     } else {
       this.isDateOccupied = true;
-      console.log('ESTA ENTRANDO');
-
       Alerts.customized({ title: 'ERROR', html: 'Ya existe reserva para esas fechas.', icon: 'error' })
     }
   }
@@ -89,6 +88,7 @@ export class ReserveComponent implements OnChanges {
   // Actualizar una reserva existente
   async updateExistingReservation(id: string, updatedReservation: Partial<Reservation>) {
     await this.reservationService.updateReservation(id, updatedReservation);
+    this.currentReservationId = '';
     this.reservationForm.reset();
   }
   // Cargar los datos de una reserva para edición
